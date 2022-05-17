@@ -163,9 +163,9 @@ $(".EscEstado").click(function(){
 
 });
 
-function ver(tick_id){
-    window.open('http://localhost:80/PERSONAL_HelpDesk/view/DetalleTicket/?ID='+ tick_id +'');
-}
+  function ver(tick_id){
+       location.href = ('http://localhost:80/PERSONAL_HelpDesk/view/DetalleTicket/?ID='+ tick_id +'');
+ }
 
 function asignar(tick_id){
     $.post("../../controller/ticket.php?op=mostrar", {tick_id : tick_id}, function (data) {
