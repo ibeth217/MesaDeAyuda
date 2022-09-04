@@ -5,11 +5,16 @@
         protected $dbh;
 
         protected function Conexion(){
+            $host = 'VMAEUClinicosNo';
+            $dbname = 'clinicos_helpdesk1';
+            $port = '3306';
+            $username = 'clinicoshelpdesk2';
+            $password = 'nNmMp9XlPKwzynA(';
             try {
-                //Local
-				$conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=clinicos_helpdesk1","root","");
+                $conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=clinicos_helpdesk1","root","");
+                //$conectar = $this->dbh = new PDO("mysql:host=$host;port=$port;dbname=$dbname",$username,$password);
+
                 //Produccion
-                //$conectar = $this->dbh = new PDO("mysql:host=localhost;dbname=andercode_helpdesk1","andercode","contraseña");
 				return $conectar;
 			} catch (Exception $e) {
 				print "¡Error BD!: " . $e->getMessage() . "<br/>";
@@ -22,11 +27,8 @@
         }
 
         public static function ruta(){
-            //Local
-			return "http://localhost:80/PERSONAL_HelpDesk/";
-            //Produccion
-            //return "http://helpdesk.anderson-bastidas.com/";
+			return "http://localhost:8073/PERSONAL_HelpDesk/";
+			//return "http://20.102.59.40:8814/";          
 		}
-
     }
 ?>

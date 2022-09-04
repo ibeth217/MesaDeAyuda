@@ -34,7 +34,9 @@
     
 </head>
 <body>
-<body style="background-color:#4E68F5;">
+
+<!--style="background-color:#4E68F5;"-->
+<body style="background:url(public/img/FondoLogin.png); background-size:cover">
 <style>
     .logonuevo{
         background-image: url(public/img/logonuevo.png);
@@ -55,7 +57,7 @@
                     <input type="hidden" id="rol_id" name="rol_id" value="1">
 
 
-                    <img src="public/img/logo.png" alt="" width="280">
+                   <img src="public/img/logo.png" alt="" width="280">
            
                     <div class="sign-avatar">
                         <img src="public/1.jpg" alt="" id="imgtipo">

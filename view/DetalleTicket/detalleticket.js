@@ -118,15 +118,57 @@ $(document).on("click","#btnenviar", function(){
     var tick_id = getUrlParameter('ID');
     var usu_id = $('#user_idx').val();
     var tickd_descrip = $('#tickd_descrip').val();
+    
+    var formData = new FormData($("#ticket_form")[0]);
+    //var formData = [];
 
-    if ($('#tickd_descrip').summernote('isEmpty')){
+    if ($('#tickd_descrip').summernote('isEmpty')) {
+        
+        
         swal("Advertencia!", "Falta Descripción", "warning");
-    }else{
-        $.post("../../controller/ticket.php?op=insertdetalle", { tick_id:tick_id,usu_id:usu_id,tickd_descrip:tickd_descrip}, function (data) {
-            listardetalle(tick_id);
-            $('#tickd_descrip').summernote('reset');
-            swal("Correcto!", "Registrado Correctamente", "success");
-        }); 
+    } else {
+
+        var totalfiles = $('#fileElem').val().length;
+         
+        /*
+        for (var i = 0; i < totalfiles; i++) {
+            formData.append("files[]", $('#fileElem')[0].files[i]);
+        }*/        
+
+        formData.append("files[]", $('#fileElem')[0].files[0]);
+        formData.append("tick_id", tick_id);
+        formData.append("usu_id", usu_id);
+        formData.append("tickd_descrip", tickd_descrip);
+        
+        // console.log($('#fileElem')[0].files[0]);
+        // console.log(formData);
+
+        $.ajax({
+            url: "../../controller/ticket.php?op=insertdetalle",
+            type: "POST",
+            data: formData,
+            /*
+                tick_id: tick_id,
+                usu_id: usu_id,
+                tickd_descrip: tickd_descrip,
+                //file: $('#fileElem')[0].files[0].name
+                file: formData.files
+            ,*/
+            contentType: false,
+            processData: false,
+            success: function(data){
+                console.log(data);
+                swal("Ticket Actualizado Correctamente");
+                        
+                                        
+            }
+        });
+
+        // $.post("../../controller/ticket.php?op=insertdetalle", { tick_id:tick_id,usu_id:usu_id,tickd_descrip:tickd_descrip}, function (data) {
+        //     listardetalle(tick_id);
+        //     $('#tickd_descrip').summernote('reset');
+        //     swal("Correcto!", "Registrado Correctamente", "success");
+        // }); 
     }
 });
 
@@ -177,17 +219,22 @@ function listardetalle(tick_id){
         $('#lblnomusuario').html(data.usu_nom +' '+data.usu_ape);
         $('#lblfechcrea').html(data.fech_crea);
         
-        $('#lblnomidticket').html("Detalle Ticket - "+data.tick_id);
+        $('#lblnomidticket').html("Detalle Ticket - " + data.tick_id);
+        $('#sedcat_nom').val(data.sedcat_nom);
+        $('#tick_anydesk').val(data.tick_anydesk);
+        $('#tick_usuafect').val(data.tick_usuafect);
+        $('#tick_solicitud').val(data.tick_solicitud);
 
         $('#cat_nom').val(data.cat_nom);
         $('#cats_nom').val(data.cats_nom);
         $('#tick_titulo').val(data.tick_titulo);
+        $('#sedcat_nom').val(data.sedcat_nom);
         $('#tick_cel').val(data.tick_cel);
         $('#tick_anydesk').val(data.tick_anydesk);
         $('#tickd_descripusu').summernote ('code',data.tick_descrip);
         console.log( data.tick_estado_texto);
         if (data.tick_estado_texto == "Cerrado"){
-            $('#pnldetalle').hide();
+            $('#sedcat_nom').hide();
         }
     }); 
 }

@@ -55,7 +55,7 @@
                     $output["usu_nom"] = $row["usu_nom"];
                     $output["usu_ape"] = $row["usu_ape"];
                     $output["usu_correo"] = $row["usu_correo"];
-                    $output["usu_pass"] = $row["usu_pass"];
+                   $output["usu_pass"] = $row["usu_pass"];
                     $output["rol_id"] = $row["rol_id"];
                     $output["primera_vez"] = $row["primera_vez"];
                     
@@ -108,7 +108,7 @@
                 $html.= "<option label='Seleccionar'></option>";
                 foreach($datos as $row)
                 {
-                    $html.= "<option value='".$row['usu_id']."'>".$row['usu_nom']."".$row['usu_ape']."</option>";
+                    $html.= "<option value='".$row['usu_id']."'>".$row['usu_nom']." ".$row['usu_ape']."</option>";
                 }
                 echo $html;
             }
@@ -120,6 +120,7 @@
 
         case "cambiarpassword":
             $usuario->update_usuario_pass_primera_vez($_POST["usu_id"],$_POST["NuevoPass"]);
-            break;        
+            break;
+
     }
 ?>

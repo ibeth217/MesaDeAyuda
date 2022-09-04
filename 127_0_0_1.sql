@@ -149,10 +149,10 @@ CREATE TABLE `tm_categoria` (
 --
 
 INSERT INTO `tm_categoria` (`cat_id`, `cat_nom`, `est`) VALUES
-(1, 'Equipos de cómputo', 1),
+(1, 'Equipos de computo', 1),
 (2, 'Accesorios', 1),
 (3, 'Digiturno', 1),
-(4, 'Impresión', 1),
+(4, 'Impresion', 1),
 (5, 'Correo', 1),
 (6, 'One Drive', 1),
 (7, 'Sharepoint', 1),
@@ -164,10 +164,10 @@ INSERT INTO `tm_categoria` (`cat_id`, `cat_nom`, `est`) VALUES
 (13, 'Mipres', 1),
 (14, 'Data Rutas', 1),
 (15, 'Teams Health', 1),
-(16, 'Página Web', 1),
+(16, 'Pagina Web', 1),
 (17, 'PBX', 1),
 (18, 'Software', 1),
-(19, 'Analítica', 1),
+(19, 'Analitica', 1),
 (20, 'Pilar', 1),
 (21, 'Red - Networking', 1);
 
@@ -243,12 +243,12 @@ CREATE TABLE `tm_sede` (
 --
 
 INSERT INTO `tm_sede` (`sedcat_id`, `sedcat_nom`, `est`) VALUES
-(1, 'Américas', 1),
+(1, 'Americas', 1),
 (2, 'Calle 98', 1),
 (3, 'Cartagena', 1),
 (4, 'Duitama', 1),
 (5, 'Bulevar', 1),
-(6, 'San Martín', 1),
+(6, 'San Martin', 1),
 (7, 'Sogamoso', 1),
 (8, 'Trabajo en casa', 1),
 (9, 'Tunja', 1),
@@ -272,15 +272,15 @@ CREATE TABLE `tm_subcategoria` (
 --
 
 INSERT INTO `tm_subcategoria` (`subcat_id`, `cat_id`, `subcat_nom`, `est`) VALUES
-(1, 1, 'Entrega de equipos de cómputo', 1),
+(1, 1, 'Entrega de equipos de computo', 1),
 (2, 2, 'Entrega cambio de mouse', 1),
-(3, 1, 'Mantenimiento correctivo equipos de cómputo', 1),
-(4, 1, 'Repotenciación equipo de cómputo', 1),
-(5, 1, 'Mantenimiento preventivo equipo de cómputo', 1),
-(6, 1, 'Cambio equipo de cómputo', 1),
+(3, 1, 'Mantenimiento correctivo equipos de computo', 1),
+(4, 1, 'Repotenciación equipo de computo', 1),
+(5, 1, 'Mantenimiento preventivo equipo de computo', 1),
+(6, 1, 'Cambio equipo de computo', 1),
 (7, 2, 'Entrega y/o cambio de mouse y teclado', 1),
 (8, 2, 'Entrega y/o cambio de diadema', 1),
-(9, 2, 'Entrega y/o cambio de cableado de audio, video , red, energía otros', 1),
+(9, 2, 'Entrega y/o cambio de cableado de audio, video , red, energia otros', 1),
 (10, 2, 'Entrega y/o cambio de adaptadores audio, video, red', 1),
 (11, 1, 'Otros', 1),
 (12, 2, 'Entrega y/o cambio de pantallas', 1),
@@ -523,15 +523,13 @@ CREATE TABLE `tm_usuario` (
 --
 
 INSERT INTO `tm_usuario` (`usu_id`, `usu_nom`, `usu_ape`, `usu_correo`, `usu_pass`, `rol_id`, `fech_crea`, `fech_modi`, `fech_elim`, `est`, `primera_vez`, `recuperar_pass`) VALUES
-(22, 'thanya', 'lozano', 'tlozano@clinicos.com.co', '25f9e794323b453885f5181f1b624d0b', 2, '2022-02-04 08:17:36', NULL, '2022-02-25 16:23:37', 1, 1, 0),
-(194, 'thanya2 usuario prueba', 'lozano', 'tlozano@clinicos.com.co', '25f9e794323b453885f5181f1b624d0b', 1, '2022-02-17 09:20:15', NULL, '2022-03-22 09:20:38', 0, 1, 0),
-(199, 'Alfredo', 'Bohorquez García', 'abohorquez@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-03-20 15:34:46', NULL, NULL, 1, 1, 0),
-(200, 'Cristian Arley ', 'Cárdenas Linares', 'ccardenas@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-03-20 15:38:03', NULL, NULL, 1, 1, 0),
-(201, 'Cristian David', 'Casasbuenas Rodríguez', 'ccasasbuenas@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-03-20 15:39:33', NULL, NULL, 1, 1, 0),
-(202, 'Jefrey ', 'Ríos Calderon', 'jrios@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-03-20 15:40:09', NULL, NULL, 1, 1, 0),
-(203, 'Martha Yanet', 'Camacho Ojeda', 'mcamacho@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 1, '2022-03-20 15:42:50', NULL, NULL, 1, 0, 0),
-(204, 'Carlos Damian', 'Morales Olivera', 'cmorales@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-03-20 15:43:26', NULL, NULL, 1, 1, 0),
-(208, 'thanya2 usuario prueba', 'Lozano', 'tlozano@clinicos.com.co', '25f9e794323b453885f5181f1b624d0b', 1, '2022-03-22 09:40:25', NULL, NULL, 1, 1, 0);
+(1, 'thanya', 'lozano', 'tlozano@clinicos.com.co', '25f9e794323b453885f5181f1b624d0b', 2, '2022-02-04 08:17:36', NULL, '2022-02-25 16:23:37', 1, 1, 0),
+(2, 'Alfredo', 'Bohorquez García', 'abohorquez@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-03-20 15:34:46', NULL, NULL, 1, 1, 0),
+(3, 'Cristian Arley ', 'Cárdenas Linares', 'ccardenas@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-03-20 15:38:03', NULL, NULL, 1, 1, 0),
+(4, 'Cristian David', 'Casasbuenas Rodríguez', 'ccasasbuenas@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-03-20 15:39:33', NULL, NULL, 1, 1, 0),
+(5, 'Jefrey ', 'Ríos Calderon', 'jrios@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-03-20 15:40:09', NULL, NULL, 1, 1, 0),
+(6, 'Martha Yanet', 'Camacho Ojeda', 'mcamacho@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 1, '2022-03-20 15:42:50', NULL, NULL, 1, 0, 0),
+(7, 'Carlos Damian', 'Morales Olivera', 'cmorales@clinicos.com.co', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-03-20 15:43:26', NULL, NULL, 1, 1, 0);
 
 --
 -- Índices para tablas volcadas

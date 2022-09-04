@@ -32,7 +32,8 @@ $(".EscEstado").click(function(){
     $.post("../../controller/ticket.php?op=CambEstado", {tick_id : $("#TicktCambiarEstado").val(), tick_estado:$('#EstadosTickets').val()}, function (data) {
         //alert(data);
         $('#ValidarEstadoTicket_').show();
-        $('#ValidarEstadoTicket_').html("<div class='alert alert-success'><strong>Listo!</strong> Ticket cambiado a estado "+$('#EstadosTickets').val()+"..</div>");
+        $('#ValidarEstadoTicket_').html("<div class='alert alert-success'><strong>Listo!</strong> Ticket cambiado a estado " + $('#EstadosTickets').val() + "..</div>");
+        
     
     });
     
@@ -108,7 +109,23 @@ $(".EscEstado").click(function(){
             }     
         }).DataTable(); 
     }else{
-        tabla=$('#ticket_data').dataTable({
+        tabla = $('#ticket_data').dataTable({
+            /*drawCallback: function () {
+                //$('li.paginate_button').off().click(function () {
+                $('li.paginate_button').click(function () {
+                    //console.log('just been clicked');
+                    //tabla.ajax().reload();
+                    /*$.ajax({
+                        url: '../../controller/ticket.php?op=listar2',
+                        type: "post",
+                        dataType: "json",
+                        success: function () { console.log('Exito') }, 
+                        error: function (e) {
+                            console.log(e.responseText);
+                        }
+                    });
+                });
+            },*/
             "aProcessing": true,
             "aServerSide": true,
             dom: 'Bfrtip',
@@ -122,6 +139,9 @@ $(".EscEstado").click(function(){
                     'pdfHtml5'
                     ],
             "ajax":{
+                /*url: $('li.paginate_button').clicked
+                    ? '../../controller/ticket.php?op=listar2'
+                    : '../../controller/ticket.php?op=listar',*/
                 url: '../../controller/ticket.php?op=listar',
                 type : "post",
                 dataType : "json",						
@@ -163,9 +183,12 @@ $(".EscEstado").click(function(){
 
 });
 
-  function ver(tick_id){
-       location.href = ('http://localhost:80/PERSONAL_HelpDesk/view/DetalleTicket/?ID='+ tick_id +'');
- }
+function ver(tick_id){
+    //location.href = ('http://20.102.59.40:8814/view/DetalleTicket/?ID=' + tick_id + '');
+    location.href = ('http://localhost:8073/PERSONAL_HelpDesk/view/DetalleTicket/?ID=' + tick_id + '');
+    
+    
+}
 
 function asignar(tick_id){
     $.post("../../controller/ticket.php?op=mostrar", {tick_id : tick_id}, function (data) {

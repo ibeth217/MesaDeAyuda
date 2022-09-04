@@ -23,13 +23,6 @@
                             <span class="glyphicon glyphicon-th"></span>
                             <span class="lbl">Consultar Ticket</span>
                         </a>
-<!--                         
-                    <center>
-                        <img class="hidden-md-rigth" src="../../public/img/logonuevo.png" alt="">
-                            <img class="hidden-lg-up" src="../../public/img/logonuevo-mob.png" alt="">                        
-                            <a href="#" class="site-logo">
-                          </a>    
-                          </center>  -->
                 </ul>
             </nav>
         <?php
@@ -63,13 +56,6 @@
                             <span class="glyphicon glyphicon-th"></span>
                             <span class="lbl">Consultar Ticket</span>
                         </a>
-              
-                        <!-- <center>
-                        <img class="hidden-md-rigth" src="../../public/img/logonuevo.png" alt="">
-                            <img class="hidden-lg-up" src="../../public/img/logonuevo-mob.png" alt="">                        
-                            <a href="#" class="site-logo">
-                          </a>    
-                          </center>  -->
                 </ul>
             </nav>
         <?php

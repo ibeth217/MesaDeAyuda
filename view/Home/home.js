@@ -1,7 +1,9 @@
 function init(){
+   
 }
 
 $(document).ready(function(){
+
     var usu_id = $('#user_idx').val();
     $('#NewPass_').val("");
 
@@ -39,8 +41,9 @@ $(document).ready(function(){
     }
 
     });   
+
     
-    if ( $('#rol_idx').val() == 1){   
+    if ( $('#rol_idx').val() == 1){  
         $.post("../../controller/usuario.php?op=total", {usu_id:usu_id}, function (data) {
             data = JSON.parse(data);
             $('#lbltotal').html(data.TOTAL);
@@ -59,7 +62,7 @@ $(document).ready(function(){
         $.post("../../controller/usuario.php?op=mostrar", {usu_id:usu_id}, function (data) {
             data = JSON.parse(data);
             cambioContraseña=data.primera_vez;
-            // console.log("data es:", cambioContraseña);
+            console.log("data es:", cambioContraseña);
             if(cambioContraseña ==  0){
                 // alert("Amigo debe cambiar la clave por primera vez");
                 $('#CClavePrimeraVez').modal('show'); 
@@ -114,6 +117,8 @@ $(document).ready(function(){
         }); 
 
     }
+
+ 
 });
 
 init();

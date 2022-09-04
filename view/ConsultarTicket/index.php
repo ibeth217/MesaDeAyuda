@@ -3,7 +3,7 @@
   if(isset($_SESSION["usu_id"])){ 
 
 	$conn = new mysqli("localhost", "root", "", "clinicos_helpdesk1");
- 
+	//$conn = new mysqli("VMAEUClinicosNo","clinicoshelpdesk2","nNmMp9XlPKwzynA(","clinicos_helpdesk1");
 	if ($conn->connect_error):
 		die("No se puede conectar!!: " . $conn->connect_error);
 	endif;
@@ -64,6 +64,8 @@
 							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Asignación</th>
 							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha y hora Cierre</th>
 							<th class="d-none d-sm-table-cell" style="width: 10%;">Soporte Asignado</th>
+							<th class="d-none d-sm-table-cell" style="width: 10%;">Sede</th>
+							
 							<th class="text-center" style="width: 3%;"></th>
 						</tr>
 					</thead>
@@ -97,6 +99,8 @@
                              <option value="" selected>--Seleccione un estado---</option>
 							 <option value="Abierto">Abierto</option>
 							 <option value="En revision">En revision</option>
+							 <option value="En Espera de Información del Usuario">En Espera de Información del Usuario</option>
+							 <option value="Escalado a Proveedor">Escalado a Proveedor</option>
 						</select>
 						<input type="hidden" value="" id="TicktCambiarEstado">
 						<hr>

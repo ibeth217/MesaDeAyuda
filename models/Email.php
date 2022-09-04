@@ -69,6 +69,8 @@ class Email extends PHPMailer{
             $titulo = $row["tick_titulo"];
             $categoria = $row["cat_nom"];
             $correo = $row["usu_correo"];
+            $descripcion2=$row["prueba1"];
+            $descripcion=$row["tickd_descrip"];
         }
 
         //IGual//
@@ -93,6 +95,8 @@ class Email extends PHPMailer{
         $cuerpo = str_replace("lblNomUsu", $usu, $cuerpo);
         $cuerpo = str_replace("lblTitu", $titulo, $cuerpo);
         $cuerpo = str_replace("lblCate", $categoria, $cuerpo);
+        $cuerpo = str_replace("lblDescripcion", $descripcion, $cuerpo);
+        $cuerpo = str_replace("lblDescripcion2", $descripcion, $cuerpo);
 
         $this->Body = $cuerpo;
         $this->AltBody = strip_tags("Ticket Cerrado");

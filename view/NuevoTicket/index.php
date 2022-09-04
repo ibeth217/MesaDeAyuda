@@ -5,9 +5,10 @@
 	if(isset($_SESSION["usu_id"])){
 		
 		$conn = new mysqli("localhost", "root", "", "clinicos_helpdesk1");
+		//$conn = new mysqli("VMAEUClinicosNo","clinicoshelpdesk2","nNmMp9XlPKwzynA(","clinicos_helpdesk1");
  
 		if ($conn->connect_error):
-			die("No se puede conectar!!: " . $conn->connect_error);
+			die("¡¡No se puede conectar!!: " . $conn->connect_error);
 		endif;
 	
 		$sql="select * from tm_usuario
@@ -63,44 +64,73 @@
 						<input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
 
 						<div class="col-lg-12">
-							<fieldset class="form-group">
-								<label class="form-label semibold" for="tick_titulo">Título</label>
-								<input type="text" class="form-control" id="tick_titulo" name="tick_titulo" placeholder="Ingrese Título" data-toggle="tooltip" title="Indícanos el asunto de la solicitud o incidencia">
-
-								<!--<div id="tooltip">Indiquenos el titulo de la solicitud o incidencia</div>-->
-								<div>
-								<style>
-       								 #tooltip{
-           								 background-color: #333; 
-           								 color: #fff;
-        								 padding: 5px 10px;
-           								 border-radius: 4px;
-           								 font-size: 15px;
-           								 width: 15px;
-       							 }
-        
-   							 </style>
+							<div class="col-lg-6">
+								<fieldset class="form-group">
+									<label class="form-label semibold" for="exampleInput">Empresa</label>
+									<select id="tick_empresa" name="tick_empresa" class="form-control" data-toggle="tooltip" title="Indícanos la empresa">
+									<option value="CLINICOS">CLINICOS</option>
+									<option value="INNOVAR">INNOVAR</option>
+									</select>
+								</fieldset>
+							</div>							
+								
+						    <!--------<div id="tooltip">Indiquenos el titulo de la solicitud o incidencia</div>------->
+							<div class="col-lg-6">
+								<fieldset class="form-group">
+									<label class="form-label semibold" for="exampleInput">Tipo Solicitud</label>
+									<select id="tick_solicitud" name="tick_solicitud" class="form-control" data-toggle="tooltip" title="Indícanos el incidente">
+									<option value="Solicitud">Solicitud</option>
+									<option value="Incidente">Incidente</option>
+									</select>
+								</fieldset>								
 							</div>
-						<script>
-							import { createPopper } from '@popperjs/core';
-							import './styles.css';	
-							const popcorn = document.querySelector('#popcorn');
-							const tooltip = document.querySelector('#tooltip');
-
-							createPopper(popcorn, tooltip, {
-  							placement: 'top',
-  							modifiers: [
-   							 {
-      							name: 'offset',
-      							options: {
-       						 offset: [0, 8],
-      },
-    },
-  ],
-});
-						</script>
-							</fieldset>
+				
 						</div>
+						
+						<div class="col-lg-12">
+									<!--<div id="tooltip">Indiquenos el titulo de la solicitud y nombre del usuario afectado</div>-->							
+									<div class="col-lg-6">
+										<label class="form-label semibold" for="tick_titulo">Título</label>
+										<input type="text" class="form-control" id="tick_titulo" name="tick_titulo" placeholder="Ingrese Título" data-toggle="tooltip" title="Indícanos el asunto de la solicitud o incidencia">
+
+										<style>
+												#tooltip{
+													background-color: #333; 
+													color: #fff;
+													padding: 5px 5px;
+													border-radius: 4px;
+													font-size: 15px;
+													width: 15px;
+											}
+				
+										</style>
+									</div>
+									<div class="col-lg-6">
+										<label class="form-label semibold" for="tick_usuafect">Nombre del usuario afectado</label>
+											<input type="text" minlength="10" class="form-control" id="tick_usuafect" name="tick_usuafect" placeholder="Ingrese Nombre del Usuario Afectado" data-toggle="tooltip" title="Indícanos el Nombre del usuario" required>
+											<br>
+									</div>
+									<script>
+										import { createPopper } from '@popperjs/core';
+										import './styles.css';	
+										const popcorn = document.querySelector('#popcorn');
+										const tooltip = document.querySelector('#tooltip');
+
+										createPopper(popcorn, tooltip, {
+										placement: 'top',
+										modifiers: [
+										{
+											name: 'offset',
+											options: {
+										offset: [0, 8],
+											},
+											},
+										],
+										});
+									</script>
+													
+						</div>
+
 
 						<div class="col-lg-6">
 							<fieldset class="form-group">
@@ -145,9 +175,13 @@
 							</fieldset>
 						</div>
 						<div class="col-lg-6">
-						<label class="form-label semibold" for="tick_cel">Celular</label>
+
+							<label class="form-label semibold" for="tick_cel">Celular</label>
+								<input type="text" minlength="10" class="form-control" id="tick_cel" name="tick_cel" placeholder="Ingrese Número de Celular" data-toggle="tooltip" title="Indícanos tu número de celular" required>
+								<br>
+						<!-- <label class="form-label semibold" for="tick_cel">Celular</label>
 							<input type="text" class="form-control" id="tick_cel" name="tick_cel" placeholder="Ingrese Número de Celular" data-toggle="tooltip" title="Indícanos tu número de celular">
-							<br>
+							<br> -->
 						</div>
 						<div class="col-lg-6">
 							<label class="form-label semibold" for="tick_anydesk">Anydesk</label>

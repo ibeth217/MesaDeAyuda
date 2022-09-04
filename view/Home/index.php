@@ -1,9 +1,10 @@
+
 <?php
-//
   require_once("../../config/conexion.php"); 
  if(isset($_SESSION["usu_id"])){ 
 
 	$conn = new mysqli("localhost", "root", "", "clinicos_helpdesk1");
+	//$conn = new mysqli("VMAEUClinicosNo","clinicoshelpdesk2","nNmMp9XlPKwzynA(","clinicos_helpdesk1");
  
 	if ($conn->connect_error):
 		die("No se puede conectar!!: " . $conn->connect_error);
@@ -50,6 +51,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xl-12">
+
 				<?php if ($_SESSION["rol_id"]==2):?>
 					<div class="row">
 						<div class="col-sm-4">
@@ -116,7 +118,7 @@
 							</thead>
 							<tbody>
 							    <?php if($_SESSION["rol_id"]==1):?>
-								<?php while($row =$query->fetch_array()):?>	
+								<?php while($row =$query->fetch_array()):?>
                                 <tr>
 									<td style="white-space: nowrap;"><p class="text-justify" style="font-weight:600 !important;">
 										<?php echo $row['tick_id'];?>
@@ -231,10 +233,13 @@
 
 	</div>
 	<script type="text/javascript" src="consultarstatus.js"></script>
-	
+
+
+													
 	 <!-- Modal -->
 <div id="CClavePrimeraVez" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog">
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">

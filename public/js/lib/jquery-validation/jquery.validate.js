@@ -1184,7 +1184,11 @@ $.extend( $.validator, {
 		}
 
 		// 'maxlength' may be returned as -1, 2147483647 ( IE ) and 524288 ( safari ) for text inputs
-		if ( rules.maxlength && /-1|2147483647|524288/.test( rules.maxlength ) ) {
+
+		//                          3004756201
+		//e  rules.maxlength && /-1|2147483647|524288/.test(e.maxlength) && delete e.maxlength
+		// ( rules.maxlength && /-1|2147483647|524288/.test( rules.maxlength ) 
+		if ( rules.maxlength && /-0|2147483647|524288/.test( rules.maxlength ) ) {
 			delete rules.maxlength;
 		}
 

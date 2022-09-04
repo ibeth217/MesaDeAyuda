@@ -46,6 +46,12 @@ if (isset($_SESSION["usu_id"])) {
                   <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" readonly>
                 </fieldset>
               </div>
+              <div class="col-lg-6">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="sedcat_nom">Sede</label>
+                  <input type="text" class="form-control" id="sedcat_nom" name="sedcat_nom" readonly>
+                </fieldset>
+              </div>
 
               <div class="col-lg-6">
                 <fieldset class="form-group">
@@ -65,6 +71,19 @@ if (isset($_SESSION["usu_id"])) {
                   <input type="text" class="form-control" id="tick_anydesk" name="tick_anydesk" readonly>
                 </fieldset>
               </div> 
+              <div class="col-lg-6">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="tick_usuafect">Usuario Afectado</label>
+                  <input type="text" class="form-control" id="tick_usuafect" name="tick_usuafect" readonly>
+                </fieldset>
+              </div> 
+              <div class="col-lg-6">
+                <fieldset class="form-group">
+                  <label class="form-label semibold" for="tick_solicitud">Tipo de solicitud</label>
+                  <input type="text" class="form-control" id="tick_solicitud" name="tick_solicitud" readonly>
+                </fieldset>
+              </div> 
+               
 
               <div class="col-lg-12">
                 <fieldset class="form-group">
@@ -91,6 +110,19 @@ if (isset($_SESSION["usu_id"])) {
                     <textarea id="tickd_descripusu" name="tickd_descripusu" class="summernote" name="name"></textarea>
                   </div>
 
+                  <label class="form-label semibold" for="tick_titulo">Documentos Adicionales</label>
+                  <table id="documentos_data" class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                    <thead>
+                      <tr>
+                        <th style="width: 90%;">Nombre</th>
+                        <th class="text-center" style="width: 10%;"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+
                 </fieldset>
               </div>
 
@@ -111,6 +143,12 @@ if (isset($_SESSION["usu_id"])) {
                   <label class="form-label semibold" for="tickd_descrip">Descripción</label>
                   <div class="summernote-theme-1">
                     <textarea id="tickd_descrip" name="tickd_descrip" class="summernote" name="name"></textarea>
+                  </div>
+                  <div class="col-lg-4">
+                        <fieldset class="form-group">
+                          <label class="form-label semibold" for="exampleInput"><h6>Adjuntar archivo</h6></label>
+                          <input type="file" name="fileElem" id="fileElem" class="form-control" multiple>
+                        </fieldset>
                   </div>
                 </fieldset>
               </div>
