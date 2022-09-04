@@ -34,6 +34,39 @@
         }
         }
 
+        public function insert_ticket2($usu_id,$cat_id,$tick_titulo,$tick_descrip,$tick_fecha,$tick_hora,$pri_id,$tick_cel,$tick_anydesk,$sedcat_id,$tick_empresa,$tick_solicitud,$tick_usuafect){
+           
+            try {
+              
+          
+            $conectar= parent::conexion();
+            parent::set_names();
+            $sql="INSERT INTO tm_ticket (tick_id,usu_id,cat_id,tick_titulo,tick_descrip,tick_estado,fech_crea,hora,usu_asig,fech_asig,pri_id,est,tick_cel,tick_anydesk,sedcat_id,tick_empresa,tick_solicitud,tick_usuafect) VALUES (NULL,?,?,?,?,'Abierto',?,?,NULL,NULL,?,'1',?,?,?,?,?,?);";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_id);
+            $sql->bindValue(2, $cat_id);
+            $sql->bindValue(3, $tick_titulo);
+            $sql->bindValue(4, $tick_descrip);
+            $sql->bindValue(5, $tick_fecha);
+            $sql->bindValue(6, $tick_hora);
+            $sql->bindValue(7, $pri_id);
+            $sql->bindValue(8, $tick_cel);
+            $sql->bindValue(9, $tick_anydesk);
+            $sql->bindValue(10, $sedcat_id);
+            $sql->bindValue(11, $tick_empresa);
+            $sql->bindValue(12, $tick_solicitud);
+            $sql->bindValue(13, $tick_usuafect);
+            $sql->execute();
+
+            $sql1="select last_insert_id() as 'tick_id';";
+            $sql1=$conectar->prepare($sql1);
+            $sql1->execute();
+            return $resultado=$sql1->fetchAll(pdo::FETCH_ASSOC);
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+        }
+        }
+
         public function listar_ticket_x_usu($usu_id){
             try{
             $conectar= parent::conexion();
